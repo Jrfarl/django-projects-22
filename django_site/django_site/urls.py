@@ -1,7 +1,7 @@
-"""dice_game URL Configuration
+"""django_site URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from dice_roll import views as diceviews
+from KeepWorking import views as workviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', diceviews.index, name='home'),
-    path('game', diceviews.game, name='game'),
-    path('random', diceviews.rand_generator),
+    path('', workviews.index, name="home"),
+    path('projects', workviews.projects),
 ]
