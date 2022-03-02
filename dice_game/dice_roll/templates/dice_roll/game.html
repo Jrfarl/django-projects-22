@@ -44,31 +44,72 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <h1>Welcome to the dice game!</h1>
+    <label for="numDropdown">Choose a car:</label>
+    <select name="numDropdown" id="numDropdown" required>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select>
+    <br><br>
+    <button type="button" onclick="rollDice()">roll</button>
+
+  <p id="outputBox"></p>
   
+
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+<footer class="w3-container w3-padding-16 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <!--
   <i class="fa fa-facebook-official w3-hover-opacity"></i>
   <i class="fa fa-instagram w3-hover-opacity"></i>
   <i class="fa fa-snapchat w3-hover-opacity"></i>
   <i class="fa fa-pinterest-p w3-hover-opacity"></i>
   <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>-->
   <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
 
 <script>
 
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else { 
+      x.className = x.className.replace(" w3-show", "");
+    }
   }
-}
+
+  function rollDice() {
+    var ddown = document.getElementById("numDropdown");
+    var guess = ddown.value;
+    var out = document.getElementById("outputBox");
+    out.innerHTML = "";
+
+    for (let i = 0; i < 5; i++) {
+
+      var rollResult = Math.floor(Math.random() * 6) + 1 + Math.floor(Math.random() * 6) + 1;     
+
+      if(rollResult == guess){
+        out.innerHTML += "<br>You Win! Rolled a " + rollResult;
+      } else {
+        out.innerHTML += "<br>You Lose. Rolled a " + rollResult;
+      }
+      
+    } 
+  }
 
 </script>
 
