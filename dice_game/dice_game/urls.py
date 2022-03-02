@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from dice_roll import views as diceviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', diceviews.home, name='home'),
+    path('game', diceviews.game, name='game'),
 ]
