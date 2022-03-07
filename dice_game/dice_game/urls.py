@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', diceviews.index, name='home'),
     path('game', diceviews.game, name='game'),
-    path('random', diceviews.rand_generator),
+    path('results', diceviews.results, name='results'),
 ]

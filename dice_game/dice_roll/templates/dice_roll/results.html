@@ -20,7 +20,7 @@ body {font-family: "Lato", sans-serif}
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large">HOME</a>
     <a href="{% url 'game' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">GAME</a>
-    <a href="/random" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RANDOM</a>
+    <a href="" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RANDOM</a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
@@ -37,7 +37,7 @@ body {font-family: "Lato", sans-serif}
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="{% url 'game' %}" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">GAME</a>
-  <a href="/random" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RANDOM</a>
+  <a href="" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RANDOM</a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
 </div>
@@ -45,26 +45,23 @@ body {font-family: "Lato", sans-serif}
 <!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
-  <h1>Welcome to the dice game!</h1>
-    <label for="numDropdown">Choose a car:</label>
-    <select name="numDropdown" id="numDropdown" required>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-    </select>
-    <br><br>
-    <button type="button" onclick="rollDice()">roll</button>
-
-  <p id="outputBox"></p>
-  
+  <header class="w3-container w3-blue w3-round-large">
+    <h1>GAME RESULTS</h1>
+  </header>
+  <div class="w3-container w3-padding-16">
+    <table class="w3-table w3-blue w3-round-large">
+      <tr>
+        <th>USER CHOICE: {{ userChoice }}</th>
+      </tr>
+      {% for i in my_result %}
+      <tr>
+        <td {%if userCoice == i %} class="we-green w3-animate-top"> You win! The roll is {{ i }}
+          {% else %} class="w3-blue"> Tough luck! Sorry the roll is {{ i }}.{%endif%} </td>
+      </tr>
+      {% endfor %}
+      <tr><td></td></tr>
+    </table>
+  </div>
 
 </div>
 
@@ -92,24 +89,8 @@ body {font-family: "Lato", sans-serif}
     }
   }
 
-  function rollDice() {
-    var ddown = document.getElementById("numDropdown");
-    var guess = ddown.value;
-    var out = document.getElementById("outputBox");
-    out.innerHTML = "";
-
-    for (let i = 0; i < 5; i++) {
-
-      var rollResult = Math.floor(Math.random() * 6) + 1 + Math.floor(Math.random() * 6) + 1;     
-
-      if(rollResult == guess){
-        out.innerHTML += "<br>You Win! Rolled a " + rollResult;
-      } else {
-        out.innerHTML += "<br>You Lose. Rolled a " + rollResult;
-      }
-      
-    } 
-  }
+   
+  
 
 </script>
 

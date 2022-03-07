@@ -19,16 +19,9 @@ body {font-family: "Lato", sans-serif}
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="{% url 'about' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT</a>
     <a href="{% url 'game' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">GAME</a>
-    <a href="" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RESULTS</a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-    <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-        <a href="#" class="w3-bar-item w3-button">Extras</a>
-        <a href="#" class="w3-bar-item w3-button">Media</a>
-      </div>
     </div>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
@@ -36,35 +29,20 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="{% url 'game' %}" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">GAME</a>
-  <a href="" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RESULTS</a>
+  <a href="{% url 'about' %}" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT</a>
+  <a href="{% url 'game'%}" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">GAME</a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
 </div>
 
 <!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
-
-  <h1>Welcome to the dice game!</h1>
-  <form action="results" method="">
-    <label for="userChoice">Choose a number:</label>
-    <select name="userChoice" id="userChoice" required>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-    </select>
-    <br><br>
-    <button type="button" class="w3-round-large">roll</button>
-  </form>
-
+  <h1>How to Play the game:</h1>
+  <ol>
+    <li>Select a number from the prediction drop down</li>
+    <li>Click the roll button</li>
+    <li>Watch the results in the output box, if the sum of two dice in any of the five rolls equals your prediction, you win!</li>
+  </ol>
 </div>
 
 <!-- Footer -->
@@ -75,21 +53,21 @@ body {font-family: "Lato", sans-serif}
   <i class="fa fa-snapchat w3-hover-opacity"></i>
   <i class="fa fa-pinterest-p w3-hover-opacity"></i>
   <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>-->
+  <i class="fa fa-linkedin w3-hover-opacity"></i> -->
   <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
 
 <script>
 
-  // Used to toggle the menu on small screens when clicking on the menu button
-  function myFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-      x.className += " w3-show";
-    } else { 
-      x.className = x.className.replace(" w3-show", "");
-    }
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
   }
+}
 
 </script>
 
