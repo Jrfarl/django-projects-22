@@ -10,9 +10,6 @@ def index(request):
 
 def game(request):
     return render(request, 'dice_roll/game.html')
-
-def rand_generator(request):
-    return render(request, 'rice_roll/rand_generator.html')
     
 def results(request):
     user_choice = int(request.GET.get('userChoice'))
@@ -25,3 +22,4 @@ def results(request):
         my_result.append(roll)
         counter += 1
     return render(request, 'dice_roll/results.html', {'userChoice': user_choice, 'my_results': my_result})
+
