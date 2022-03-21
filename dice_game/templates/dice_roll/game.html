@@ -1,0 +1,36 @@
+{% extends 'dice_roll/partial.html' %}
+{% block  content %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <h1>Welcome to the dice game!</h1>
+    <form class="w3-container w3-center w3-padding-top-32" action="results" method="get">
+      <label for="userChoice">Choose a number:</label>
+      <select name="userChoice" id="userChoice" required>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+      </br>
+      </br>
+      <button class="w3-btn w3-blue w3-round-large"> Play Again </button>
+    </form>
+
+</div>
+
+</body>
+</html>
+
+{% endblock content %}
