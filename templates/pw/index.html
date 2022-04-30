@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title></title>
+        <style>
+            body {font-family: "Lato", sans-serif}
+        </style>
+    </head>
+    <body>
+        <div class="w3-content w3-container w3-padding w3-text teal" style="max-width:2000px;margin-top:46px">
+            <h1 class="w3-center">Password Generator</h1>
+
+            <div class="w3-container w3-left">
+                <h3>Complexity Features</h3>
+                <form action="{% url 'new_pw' %}">
+                    <select class="w3-select w3-teal-text" name="length">
+                        <option value="" disabled selected>Choose password length</option>
+                        <option value="8">8 characters</option>
+                        <option value="10">10 characters</option>
+                        <option value="12">12 characters</option>
+                        <option value="14">14 characters</option>
+                        <option value="16">16 characters</option>
+                        <option value="18">18 characters</option>
+                        <option value="20">20 characters</option>
+                    </select> <BR><BR>
+                    <input class="w3-check" type="checkbox" name="uppercase">Uppercase<BR><BR>
+                    <input class="w3-check" type="checkbox" name="special">Special Characters<BR><BR>
+                    <input class="w3-check" type="checkbox" name="numbers">Numbers<BR><BR>
+                    <button class="w3-btn w3-blue-grey w3-card-4">Generate Password</button>
+
+                </form>
+            </div>
+
+
+        </div>
+
+    </body>
+</html>

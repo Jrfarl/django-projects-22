@@ -1,0 +1,18 @@
+{% extends 'base_app/base.html' %}
+{% block  content%}
+        <div class="w3-content w3-container w3-padding w3-text teal" style="max-width:2000px;margin-top:46px">
+            <h1 class="w3-center">Generated Password</h1>
+                <h1 class="w3-center">{{new_pw}}</h1>
+
+                <form action="{% url 'pw_home' %}" class="w3-center">
+                    <button class="w3-btn w3-blue-grey w3-card-4">Return to Generator</button>
+                </form>
+                <div class="w3-container w3-left">
+                    <p>The selected length: {{length}}</p>
+                    <p>Includes uppercase characters: {{uppercase}}</p>
+                    <p>Includes special characters: {{special}}</p>
+                    <p>Includes numbers: {{numbers}}</p>
+                </div>
+
+        </div>   
+{% endblock content %}

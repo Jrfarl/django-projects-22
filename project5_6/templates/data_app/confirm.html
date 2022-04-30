@@ -1,0 +1,23 @@
+{% extends 'base_app/base.html' %}
+{%load static%}
+{% block content %}
+<div class = 'w3-content' style="max-width:2000px;margin-top:46px">
+
+{% if messages %}
+    {% for m in messages %}
+        <p> {{ m }}</p>
+    {% endfor %}
+{% endif %}
+
+<h1> Current Student List: </h1>
+{% for s in students %}
+<p>
+    {% if s.profile_pic %}
+        <img src='/media/{{ s.profile_pic }}' alt='media/{{ s.profile_pic }}' style="width:48px;height:48px;">
+    {% endif %}
+    {{ s.name }} has {{s.gpa}} gpa and is a {{s.academic_class}} studying {{s.major}}
+</p>
+{% endfor %}
+
+</div>
+{% endblock content %}
