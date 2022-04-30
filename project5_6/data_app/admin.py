@@ -6,4 +6,4 @@ class StudentAdmin(admin.ModelAdmin):
     list_display = ('name', 'major', 'academic_class')
     list_display_links = ('name', 'major')
 
-admin.register(Student, StudentAdmin)
+admin.site.register(Student, StudentAdmin)
